@@ -22,14 +22,14 @@ export class StoryLibrary {
       <section class="library-view">
         <div class="view-header">
           <div class="view-title-group">
-            <h2>My Library</h2>
-            <p>Your curated collection of stories, ready to read and listen.</p>
+            <h2>คลังนิยายของฉัน</h2>
+            <p>คอลเลกชันนิยายที่คุณสร้าง พร้อมให้อ่านและรับฟังทุกเมื่อ</p>
           </div>
 
           <div class="header-action-group">
             <button class="btn-create-story" id="btn-lib-new-story">
               <span>+</span>
-              <span>Create story</span>
+              <span>สร้างนิยายใหม่</span>
             </button>
           </div>
         </div>
@@ -39,7 +39,7 @@ export class StoryLibrary {
             <div class="story-card" data-id="${story.id}">
               <div class="story-card-cover">
                 <img src="${story.cover || '/assets/story_cover_midnight.jpg'}" alt="${story.title}" onerror="this.src='/assets/story_cover_midnight.jpg'">
-                <span class="story-card-badge">${story.estimatedMinutes || 15} min read</span>
+                <span class="story-card-badge">อ่านประมาณ ${story.estimatedMinutes || 15} นาที</span>
               </div>
 
               <div class="story-card-body">
@@ -52,8 +52,8 @@ export class StoryLibrary {
               </div>
 
               <div class="story-card-footer">
-                <span>${story.characters ? story.characters.join(' & ') : 'Original'}</span>
-                <span>${story.progress || 0}% read</span>
+                <span>${story.characters ? story.characters.join(' & ') : 'ออริจินัล'}</span>
+                <span>อ่านแล้ว ${story.progress || 0}%</span>
               </div>
             </div>
           `).join('')}

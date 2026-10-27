@@ -1,59 +1,80 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>AmoreWithAI — AI Romance Story Studio, Character Library & Audiobook</title>
-  <meta name="description" content="Turn your fantasy into a romance novel you can read, see, and hear. Create and reuse custom characters, design relationship maps, and listen with AI voices." />
-  
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>" />
+<!doctype html>
+<html lang="th" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>
+      AmoreWithAI — สตูดิโอแต่งนิยายรักด้วย AI, คลังตัวละคร และหนังสือเสียง
+    </title>
+    <meta
+      name="description"
+      content="เปลี่ยนจินตนาการของคุณให้เป็นนิยายรักที่อ่านได้ เห็นภาพ และฟังเสียงได้ สร้างและใช้ตัวละครซ้ำ ออกแบบผังความสัมพันธ์ และฟังเสียงพากย์ด้วย AI"
+    />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>"
+    />
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="/index.css" />
-</head>
-<body>
-  <!-- Ambient background lighting -->
-  <div class="ambient-glow"></div>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Header & Navigation Mount -->
-  <div id="nav-root"></div>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <!-- Ambient background lighting -->
+    <div class="ambient-glow"></div>
 
-  <!-- Main View Mount -->
-  <main class="app-main" id="main-root"></main>
+    <!-- Header & Navigation Mount -->
+    <div id="nav-root"></div>
 
-  <!-- Sticky Audiobook Player Mount -->
-  <div id="audio-root"></div>
+    <!-- Main View Mount -->
+    <main class="app-main" id="main-root"></main>
 
-  <!-- Modals & Slide-over Drawers Mount -->
-  <div id="modal-root"></div>
+    <!-- Sticky Audiobook Player Mount -->
+    <div id="audio-root"></div>
 
-  <!-- Footer -->
-  <footer class="app-footer">
-    <div class="footer-links">
-      <a href="#privacy">Privacy</a>
-      <a href="#terms">Terms</a>
-      <a href="#cookies">Cookies</a>
-      <a href="#guidelines">Guidelines</a>
-      <a href="#whats-new">What's New</a>
-      <a href="#contact">Contact</a>
-      <a href="mailto:support@amorewithai.com">support@amorewithai.com</a>
-    </div>
-    <div style="display:flex; align-items:center; gap:0.5rem; color:var(--text-muted);">
-      <span>© 2026 AmoreWithAI</span>
-      <span>•</span>
-      <span>English (US)</span>
-      <span>•</span>
-      <span>🌙 Dark Mode</span>
-    </div>
-  </footer>
+    <!-- Modals & Slide-over Drawers Mount -->
+    <div id="modal-root"></div>
 
-  <!-- Application Entry Script -->
-  <script type="module" src="/src/main.js"></script>
-</body>
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-links">
+        <a href="#privacy">ความเป็นส่วนตัว</a>
+        <a href="#terms">ข้อกำหนดการใช้งาน</a>
+        <a href="#cookies">คุกกี้</a>
+        <a href="#guidelines">แนวทางปฏิบัติ</a>
+        <a href="#whats-new">มีอะไรใหม่</a>
+        <a href="#contact">ติดต่อเรา</a>
+        <a href="mailto:support@amorewithai.com">support@amorewithai.com</a>
+      </div>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: var(--text-muted);
+        "
+      >
+        <span>© 2026 AmoreWithAI</span>
+        <span>•</span>
+        <span>ภาษาไทย (TH)</span>
+        <span>•</span>
+        <span>🌙 โหมดมืด</span>
+      </div>
+    </footer>
+
+    <!-- Application Entry Script -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

@@ -52,17 +52,17 @@ export class StoryReader {
   listenChapter(chapterIndex = 0) {
     const chapter = this.story.chapters[chapterIndex];
     if (!chapter) return;
-    const fullChapterText = `${this.story.title}. Chapter ${chapter.number}: ${chapter.title}. ` + chapter.paragraphs.join(' ');
-    audioService.speakText(fullChapterText, 'Sophia', this.story.characters?.[0] || 'Narrator');
+    const fullChapterText = `${this.story.title} บทที่ ${chapter.number}: ${chapter.title} ` + chapter.paragraphs.join(' ');
+    audioService.speakText(fullChapterText, 'Sophia', this.story.characters?.[0] || 'ผู้บรรยาย');
   }
 
   render() {
     if (!this.story) {
       this.container.innerHTML = `
         <div style="text-align:center; padding: 4rem;">
-          <h2 style="font-family:var(--font-serif); font-size:2rem; margin-bottom:1rem;">We couldn't open this story</h2>
-          <p style="color:var(--text-secondary); margin-bottom:2rem;">It may still be finishing, or the link isn't quite right.</p>
-          <button class="btn-create-story" id="btn-reader-back">Back to library</button>
+          <h2 style="font-family:var(--font-serif); font-size:2rem; margin-bottom:1rem;">ไม่พบนิยายที่คุณต้องการเปิด</h2>
+          <p style="color:var(--text-secondary); margin-bottom:2rem;">เรื่องนี้อาจกำลังสร้างอยู่ หรือลิงก์ไม่ถูกต้อง</p>
+          <button class="btn-create-story" id="btn-reader-back">กลับสู่คลังนิยาย</button>
         </div>
       `;
       this.container.querySelector('#btn-reader-back')?.addEventListener('click', () => this.onBack());
@@ -74,20 +74,20 @@ export class StoryReader {
         <!-- Floating Reader Controls -->
         <div class="reader-controls-floating">
           <div class="reader-controls-group">
-            <button class="reader-ctrl-btn" id="btn-reader-back">← Library</button>
+            <button class="reader-ctrl-btn" id="btn-reader-back">← คลังนิยาย</button>
           </div>
 
           <div class="reader-controls-group">
-            <button class="reader-ctrl-btn theme-btn ${this.settings.theme === 'dark' ? 'active' : ''}" data-theme="dark" title="Dark theme">🌙 Dark</button>
-            <button class="reader-ctrl-btn theme-btn ${this.settings.theme === 'sepia' ? 'active' : ''}" data-theme="sepia" title="Sepia book theme">📜 Sepia</button>
-            <button class="reader-ctrl-btn theme-btn ${this.settings.theme === 'light' ? 'active' : ''}" data-theme="light" title="Light theme">☀️ Light</button>
+            <button class="reader-ctrl-btn theme-btn ${this.settings.theme === 'dark' ? 'active' : ''}" data-theme="dark" title="ธีมมืด">🌙 มืด</button>
+            <button class="reader-ctrl-btn theme-btn ${this.settings.theme === 'sepia' ? 'active' : ''}" data-theme="sepia" title="ธีมซีเปีย">📜 ซีเปีย</button>
+            <button class="reader-ctrl-btn theme-btn ${this.settings.theme === 'light' ? 'active' : ''}" data-theme="light" title="ธีมสว่าง">☀️ สว่าง</button>
           </div>
 
           <div class="reader-controls-group">
-            <button class="reader-ctrl-btn" id="btn-font-dec" title="Decrease font size">A-</button>
-            <button class="reader-ctrl-btn" id="btn-font-inc" title="Increase font size">A+</button>
+            <button class="reader-ctrl-btn" id="btn-font-dec" title="ลดขนาดตัวอักษร">A-</button>
+            <button class="reader-ctrl-btn" id="btn-font-inc" title="เพิ่มขนาดตัวอักษร">A+</button>
             <button class="btn-create-story" id="btn-listen-story" style="padding: 0.35rem 0.85rem; font-size: 0.82rem;">
-              <span>🎧 Listen</span>
+              <span>🎧 ฟังเสียงพากย์</span>
             </button>
           </div>
         </div>
@@ -97,17 +97,17 @@ export class StoryReader {
             <h1 class="reader-story-title">${this.story.title}</h1>
             <p class="reader-story-subtitle">${this.story.subtitle || ''}</p>
             <div class="reader-meta-bar">
-              <span>By ${this.story.author || 'Amore With AI'}</span>
+              <span>แต่งโดย ${this.story.author || 'Amore With AI'}</span>
               <span>•</span>
-              <span>${this.story.wordCount || 4000} words</span>
+              <span>${this.story.wordCount || 4000} คำ</span>
               <span>•</span>
-              <span>${this.story.characters ? this.story.characters.join(' & ') : 'Characters'}</span>
+              <span>${this.story.characters ? this.story.characters.join(' & ') : 'ตัวละคร'}</span>
             </div>
           </header>
 
           ${(this.story.chapters || []).map((chapter, idx) => `
             <section class="reader-chapter" data-chapter="${idx}">
-              <h2 class="reader-chapter-title">Chapter ${chapter.number}: ${chapter.title}</h2>
+              <h2 class="reader-chapter-title">บทที่ ${chapter.number}: ${chapter.title}</h2>
               <div class="reader-prose">
                 ${chapter.paragraphs.map(p => `<p>${p}</p>`).join('')}
               </div>

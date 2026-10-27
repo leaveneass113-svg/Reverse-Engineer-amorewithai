@@ -39,7 +39,7 @@ export class CharacterStudio {
     const avatar = this.container.querySelector('#drawer-char-avatar-img')?.src || '/assets/character_elena.jpg';
 
     if (!name) {
-      alert('Please enter a name for your character');
+      alert('กรุณากรอกชื่อตัวละครของคุณ');
       return;
     }
 
@@ -49,7 +49,7 @@ export class CharacterStudio {
     store.saveCharacter({
       id: this.editingCharacter ? this.editingCharacter.id : undefined,
       name,
-      role: role || 'Protagonist',
+      role: role || 'ตัวเอก',
       bio,
       voice: voice || 'Sophia',
       avatar,
@@ -61,24 +61,23 @@ export class CharacterStudio {
 
   render() {
     const characters = store.getCharacters();
-    const relationships = store.getRelationships();
 
     this.container.innerHTML = `
       <section class="characters-view">
         <div class="view-header">
           <div class="view-title-group">
-            <h2>My Characters</h2>
-            <p>Everyone you've created, all in one place.</p>
+            <h2>คลังตัวละครของฉัน</h2>
+            <p>ตัวละครทั้งหมดที่คุณสร้าง รวมไว้ในที่เดียว</p>
           </div>
 
           <div class="header-action-group">
             <button class="btn-secondary ${this.currentTab === 'graph' ? 'active' : ''}" id="btn-toggle-graph">
               <span>🕸️</span>
-              <span>${this.currentTab === 'graph' ? 'View Character Cards' : 'Relationship Map'}</span>
+              <span>${this.currentTab === 'graph' ? 'การ์ดตัวละคร' : 'ผังความสัมพันธ์'}</span>
             </button>
             <button class="btn-create-story" id="btn-open-create-char">
               <span>+</span>
-              <span>Create character</span>
+              <span>สร้างตัวละคร</span>
             </button>
           </div>
         </div>
@@ -95,25 +94,25 @@ export class CharacterStudio {
                   </div>
                   <div class="character-meta">
                     <h3>${char.name}</h3>
-                    <span class="character-role-tag">${char.role || 'Character'}</span>
+                    <span class="character-role-tag">${char.role || 'ตัวละคร'}</span>
                   </div>
                 </div>
 
-                <p class="character-bio">${char.bio || 'No biography written yet.'}</p>
+                <p class="character-bio">${char.bio || 'ยังไม่มีคำอธิบายตัวละคร'}</p>
 
                 <div class="character-traits">
                   ${(char.traits || []).map(t => `<span class="trait-pill">${t}</span>`).join('')}
                 </div>
 
                 <div class="character-card-footer">
-                  <div class="voice-tag" data-voice="${char.voice}" data-name="${char.name}" title="Click to hear voice sample">
+                  <div class="voice-tag" data-voice="${char.voice}" data-name="${char.name}" title="คลิกเพื่อฟังตัวอย่างเสียงพากย์">
                     <span>🎙️</span>
-                    <span>${char.voice || 'Default'} voice</span>
+                    <span>เสียง ${char.voice || 'เริ่มต้น'}</span>
                   </div>
 
                   <div class="character-card-actions">
-                    <button class="icon-btn btn-edit-char" data-id="${char.id}" title="Edit character">✏️</button>
-                    <button class="icon-btn danger btn-del-char" data-id="${char.id}" title="Delete character">🗑️</button>
+                    <button class="icon-btn btn-edit-char" data-id="${char.id}" title="แก้ไขตัวละคร">✏️</button>
+                    <button class="icon-btn danger btn-del-char" data-id="${char.id}" title="ลบตัวละคร">🗑️</button>
                   </div>
                 </div>
               </div>
@@ -126,7 +125,7 @@ export class CharacterStudio {
           <div class="drawer-backdrop" id="char-drawer-backdrop"></div>
           <div class="drawer-panel" id="char-drawer-panel">
             <div class="drawer-header">
-              <h3>${this.editingCharacter ? 'Edit character' : 'Create a character'}</h3>
+              <h3>${this.editingCharacter ? 'แก้ไขตัวละคร' : 'สร้างตัวละครใหม่'}</h3>
               <button class="icon-btn" id="btn-close-drawer" style="font-size: 1.4rem;">×</button>
             </div>
 
@@ -137,33 +136,33 @@ export class CharacterStudio {
               <div style="flex:1;">
                 <button class="btn-secondary" id="btn-generate-avatar" style="font-size: 0.82rem; padding: 0.4rem 0.85rem;">
                   <span>✨</span>
-                  <span>Switch / Generate Avatar</span>
+                  <span>เปลี่ยน / สุ่มรูปภาพตัวละคร</span>
                 </button>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="drawer-char-name">Character Name</label>
-              <input class="form-input" id="drawer-char-name" placeholder="e.g. Elena" value="${this.editingCharacter?.name || ''}">
+              <label class="form-label" for="drawer-char-name">ชื่อตัวละคร</label>
+              <input class="form-input" id="drawer-char-name" placeholder="เช่น เอเลน่า" value="${this.editingCharacter?.name || ''}">
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="drawer-char-role">Role / Archetype</label>
-              <input class="form-input" id="drawer-char-role" placeholder="e.g. Archivist & Scholar, Enigmatic Lord" value="${this.editingCharacter?.role || ''}">
+              <label class="form-label" for="drawer-char-role">บทบาท / ลักษณะเด่น</label>
+              <input class="form-input" id="drawer-char-role" placeholder="เช่น ภัณฑารักษ์สาวผู้รอบรู้, ลอร์ดผู้ลึกลับ" value="${this.editingCharacter?.role || ''}">
             </div>
 
             <div class="form-group">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
-                <label class="form-label" style="margin-bottom:0;" for="drawer-char-bio">Biography</label>
+                <label class="form-label" style="margin-bottom:0;" for="drawer-char-bio">ประวัติและความเป็นมา</label>
                 <span id="char-bio-counter" style="font-size:0.75rem; color:var(--text-muted);">0/500</span>
               </div>
-              <textarea class="form-textarea" id="drawer-char-bio" rows="4" maxlength="500" placeholder="Who they are: nature, the couple of traits that matter, where their story has left them...">${this.editingCharacter?.bio || ''}</textarea>
+              <textarea class="form-textarea" id="drawer-char-bio" rows="4" maxlength="500" placeholder="บอกเล่าเกี่ยวกับพวกเขา: ลักษณะนิสัย, ปมเบื้องหลัง, จุดเปลี่ยนในเรื่องราว...">${this.editingCharacter?.bio || ''}</textarea>
             </div>
 
             <div class="form-group">
-              <label class="form-label">Personality Traits</label>
+              <label class="form-label">ลักษณะนิสัย</label>
               <div class="prompt-tags" id="drawer-traits-container">
-                ${['Intelligent', 'Observant', 'Reserved', 'Passionate', 'Commanding', 'Brooding', 'Protective', 'Charismatic', 'Ambitious', 'Sharp-tongued', 'Mysterious', 'Seductive'].map(trait => {
+                ${['ฉลาดหลักแหลม', 'ช่างสังเกต', 'สุขุมรอบคอบ', 'เปี่ยมเสน่ห์', 'เด็ดขาดทรงพลัง', 'เงียบขรึม', 'ปกป้องอย่างดุดัน', 'มีเสน่ห์ดึงดูด', 'ทะเยอทะยาน', 'ฝีปากกล้า', 'ลึกลับน่าค้นหา', 'เย้ายวนใจ'].map(trait => {
                   const isActive = (this.editingCharacter?.traits || []).includes(trait);
                   return `<button class="drawer-trait-chip prompt-tag ${isActive ? 'active' : ''}" style="${isActive ? 'background:var(--primary); color:#fff; border-color:var(--primary);' : ''}">${trait}</button>`;
                 }).join('')}
@@ -171,7 +170,7 @@ export class CharacterStudio {
             </div>
 
             <div class="form-group">
-              <label class="form-label" for="drawer-char-voice">Audiobook Voice</label>
+              <label class="form-label" for="drawer-char-voice">เสียงพากย์หนังสือเสียง</label>
               <div style="display: flex; gap: 0.5rem; align-items: center;">
                 <select class="form-select" id="drawer-char-voice" style="flex:1;">
                   ${AUDIO_VOICES.map(v => `
@@ -180,15 +179,15 @@ export class CharacterStudio {
                     </option>
                   `).join('')}
                 </select>
-                <button class="btn-secondary" id="btn-preview-voice" title="Test this voice sample">
-                  <span>🔊 Test</span>
+                <button class="btn-secondary" id="btn-preview-voice" title="ทดสอบเสียงพากย์นี้">
+                  <span>🔊 ทดสอบเสียง</span>
                 </button>
               </div>
             </div>
 
             <button class="btn-create-story" id="btn-save-character" style="margin-top: 1.5rem; width: 100%; justify-content: center; padding: 0.8rem;">
               <span>✨</span>
-              <span>Save character</span>
+              <span>บันทึกตัวละคร</span>
             </button>
           </div>
         ` : ''}
@@ -224,7 +223,7 @@ export class CharacterStudio {
 
     this.container.querySelectorAll('.btn-del-char').forEach(btn => {
       btn.addEventListener('click', () => {
-        if (confirm('Are you sure you want to remove this character?')) {
+        if (confirm('คุณแน่ใจหรือไม่ว่าต้องการลบตัวละครนี้?')) {
           store.deleteCharacter(btn.dataset.id);
         }
       });
@@ -235,7 +234,7 @@ export class CharacterStudio {
       tag.addEventListener('click', () => {
         const voice = tag.dataset.voice;
         const name = tag.dataset.name;
-        audioService.speakText(`Hello, I am ${name}. My voice has been tuned for your romance stories.`, voice, name);
+        audioService.speakText(`สวัสดี ฉันชื่อ ${name} เสียงพากย์ของฉันพร้อมแล้วสำหรับนิยายรักของคุณ`, voice, name);
       });
     });
 
@@ -274,8 +273,8 @@ export class CharacterStudio {
       // Voice preview in drawer
       this.container.querySelector('#btn-preview-voice')?.addEventListener('click', () => {
         const voice = this.container.querySelector('#drawer-char-voice')?.value;
-        const name = this.container.querySelector('#drawer-char-name')?.value || 'this character';
-        audioService.speakText(`This is a sample audio narration preview in the voice of ${name}.`, voice, name);
+        const name = this.container.querySelector('#drawer-char-name')?.value || 'ตัวละครนี้';
+        audioService.speakText(`นี่คือตัวอย่างเสียงพากย์หนังสือเสียงของ ${name}`, voice, name);
       });
 
       // Avatar cycle/generate

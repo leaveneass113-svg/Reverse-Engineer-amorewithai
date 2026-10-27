@@ -66,8 +66,8 @@ export class AudiobookPlayer {
       // Start reading chapter 1 of current story
       const story = store.getStories()[0];
       if (story?.chapters?.[0]) {
-        const text = `${story.title}. Chapter 1: ${story.chapters[0].title}. ${story.chapters[0].paragraphs.join(' ')}`;
-        audioService.speakText(text, 'Sophia', story.characters?.[0] || 'Narrator');
+        const text = `${story.title} บทที่ 1: ${story.chapters[0].title} ${story.chapters[0].paragraphs.join(' ')}`;
+        audioService.speakText(text, 'Sophia', story.characters?.[0] || 'ผู้บรรยาย');
       }
     }
   }
@@ -122,11 +122,11 @@ export class AudiobookPlayer {
 
         <div class="audio-center-controls">
           <div class="audio-button-row">
-            <button class="audio-btn" id="btn-audio-rw" title="Rewind 10 seconds" style="font-size: 1.1rem;">⏮</button>
-            <button class="audio-btn btn-play-pause" id="btn-audio-toggle" title="Play / Pause">
+            <button class="audio-btn" id="btn-audio-rw" title="ย้อนกลับ 10 วินาที" style="font-size: 1.1rem;">⏮</button>
+            <button class="audio-btn btn-play-pause" id="btn-audio-toggle" title="เล่น / หยุดชั่วคราว">
               <span id="btn-play-pause-icon" style="font-size: 1.15rem; margin-left: 2px;">▶</span>
             </button>
-            <button class="audio-btn" id="btn-audio-ff" title="Forward 10 seconds" style="font-size: 1.1rem;">⏭</button>
+            <button class="audio-btn" id="btn-audio-ff" title="ข้ามไปข้างหน้า 10 วินาที" style="font-size: 1.1rem;">⏭</button>
           </div>
 
           <div class="audio-scrubber-row">
@@ -141,13 +141,13 @@ export class AudiobookPlayer {
         </div>
 
         <div class="audio-right-tools">
-          <div class="soundwave-box" title="Audio narration frequency">
+          <div class="soundwave-box" title="ระดับความถี่เสียงพากย์">
             <span class="soundwave-bar"></span>
             <span class="soundwave-bar"></span>
             <span class="soundwave-bar"></span>
             <span class="soundwave-bar"></span>
           </div>
-          <button class="rate-badge" id="btn-audio-speed" title="Adjust playback rate">${this.speed}x</button>
+          <button class="rate-badge" id="btn-audio-speed" title="ปรับความเร็วการเล่น">${this.speed}x</button>
         </div>
       </div>
     `;
@@ -156,10 +156,10 @@ export class AudiobookPlayer {
     this.container.querySelector('#btn-audio-toggle')?.addEventListener('click', () => this.togglePlay());
     this.container.querySelector('#btn-audio-speed')?.addEventListener('click', () => this.cycleSpeed());
     this.container.querySelector('#btn-audio-rw')?.addEventListener('click', () => {
-      audioService.speakText("Rewinding audio narration.", 'Sophia', this.currentSpeaker);
+      audioService.speakText("กำลังย้อนกลับ 10 วินาที", 'Sophia', this.currentSpeaker);
     });
     this.container.querySelector('#btn-audio-ff')?.addEventListener('click', () => {
-      audioService.speakText("Skipping to next scene.", 'Sophia', this.currentSpeaker);
+      audioService.speakText("กำลังข้ามไปยังฉากถัดไป", 'Sophia', this.currentSpeaker);
     });
   }
 }

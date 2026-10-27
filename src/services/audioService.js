@@ -59,14 +59,21 @@ class AudioService {
     utterance.rate = (voiceCfg.rate || 1.0) * this.playbackRate;
     utterance.pitch = voiceCfg.pitch || 1.0;
 
-    // Try finding matching system voice
+    // Try finding matching system voice (prioritizing Thai voices for Thai text)
     const voices = this.synth.getVoices();
     if (voices.length > 0) {
-      const preferred = voices.find(v => v.lang.startsWith('en') && (
-        voiceCfg.gender === 'Female' ? v.name.includes('Female') || v.name.includes('Zira') || v.name.includes('Samantha') || v.name.includes('Victoria') :
-        v.name.includes('Male') || v.name.includes('David') || v.name.includes('Daniel')
-      ));
-      if (preferred) utterance.voice = preferred;
+      const isThaiText = /[\u0E00-\u0E7F]/.test(text);
+      if (isThaiText) {
+        const thaiVoice = voices.find(v => v.lang.startsWith('th'));
+        if (thaiVoice) utterance.voice = thaiVoice;
+      }
+      if (!utterance.voice) {
+        const preferred = voices.find(v => (v.lang.startsWith('th') || v.lang.startsWith('en')) && (
+          voiceCfg.gender === 'Female' ? v.name.includes('Female') || v.name.includes('Zira') || v.name.includes('Samantha') || v.name.includes('Victoria') :
+          v.name.includes('Male') || v.name.includes('David') || v.name.includes('Daniel')
+        ));
+        if (preferred) utterance.voice = preferred;
+      }
     }
 
     utterance.onstart = () => {

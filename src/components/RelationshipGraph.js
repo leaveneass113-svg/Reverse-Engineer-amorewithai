@@ -144,8 +144,8 @@ export class RelationshipGraph {
         this.ctx.lineTo(n2.x, n2.y);
 
         let strokeColor = 'rgba(207, 41, 97, 0.6)';
-        if (rel.kind === 'Rivals') strokeColor = 'rgba(239, 68, 68, 0.6)';
-        if (rel.kind === 'Exes') strokeColor = 'rgba(156, 163, 175, 0.6)';
+        if (rel.kind === 'Rivals' || rel.kind.includes('คู่ปรับ')) strokeColor = 'rgba(239, 68, 68, 0.6)';
+        if (rel.kind === 'Exes' || rel.kind.includes('อดีต')) strokeColor = 'rgba(156, 163, 175, 0.6)';
 
         this.ctx.strokeStyle = strokeColor;
         this.ctx.lineWidth = 2.5;
@@ -158,7 +158,7 @@ export class RelationshipGraph {
         const my = (n1.y + n2.y) / 2;
 
         this.ctx.save();
-        this.ctx.font = '600 11px DM Sans, sans-serif';
+        this.ctx.font = '600 11px Prompt, DM Sans, sans-serif';
         const label = rel.kind;
         const metrics = this.ctx.measureText(label);
         const padX = 8;
@@ -212,12 +212,12 @@ export class RelationshipGraph {
         this.ctx.stroke();
 
         // Node label
-        this.ctx.font = '700 13px DM Sans, sans-serif';
+        this.ctx.font = '700 13px Prompt, DM Sans, sans-serif';
         this.ctx.fillStyle = '#f5f4f8';
         this.ctx.textAlign = 'center';
         this.ctx.fillText(node.name, node.x, node.y + node.r + 16);
 
-        this.ctx.font = '500 10px DM Sans, sans-serif';
+        this.ctx.font = '500 10px Prompt, DM Sans, sans-serif';
         this.ctx.fillStyle = '#9e99ab';
         this.ctx.fillText(node.role, node.x, node.y + node.r + 29);
         this.ctx.restore();
@@ -239,21 +239,21 @@ export class RelationshipGraph {
         <div class="relationship-canvas-toolbar">
           <button class="btn-secondary" id="btn-reset-layout" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
             <span>🔄</span>
-            <span>Reset view</span>
+            <span>รีเซ็ตมุมมอง</span>
           </button>
           <button class="btn-secondary" id="btn-tidy-layout" style="font-size: 0.8rem; padding: 0.35rem 0.75rem;">
             <span>✨</span>
-            <span>Tidy up layout</span>
+            <span>จัดระเบียบผัง</span>
           </button>
         </div>
         <canvas class="relationship-canvas" id="relation-canvas"></canvas>
       </div>
 
       <div class="relationship-legend">
-        <div class="legend-item"><span class="legend-badge" style="background:#cf2961"></span><span>Lovers / Passionate</span></div>
-        <div class="legend-item"><span class="legend-badge" style="background:#ef4444"></span><span>Rivals</span></div>
-        <div class="legend-item"><span class="legend-badge" style="background:#9ca3af"></span><span>Exes</span></div>
-        <div class="legend-item"><span class="legend-badge" style="background:#10b981"></span><span>Allies / Friends</span></div>
+        <div class="legend-item"><span class="legend-badge" style="background:#cf2961"></span><span>คนรัก / ความสัมพันธ์ลึกซึ้ง</span></div>
+        <div class="legend-item"><span class="legend-badge" style="background:#ef4444"></span><span>คู่ปรับ / คู่แข่ง</span></div>
+        <div class="legend-item"><span class="legend-badge" style="background:#9ca3af"></span><span>อดีตคนรัก</span></div>
+        <div class="legend-item"><span class="legend-badge" style="background:#10b981"></span><span>พันธมิตร / สหายสนิท</span></div>
       </div>
     `;
 

@@ -1,33 +1,33 @@
 export const INITIAL_CHARACTERS = [
   {
     id: "char-elena-vance",
-    name: "Elena Vance",
-    role: "Archivist & Scholar",
+    name: "Elena Vance (เอเลน่า แวนซ์)",
+    role: "ภัณฑารักษ์และนักวิชาการ",
     avatar: "/assets/character_elena.jpg",
-    bio: "Head curator of the private archives at Blackwood Estate. Quietly brilliant, possessing a sharp intellect and a vulnerability she guards behind ancient manuscripts and velvet gowns.",
-    traits: ["Intelligent", "Observant", "Reserved", "Passionate"],
+    bio: "หัวหน้าผู้ดูแลหอจดหมายเหตุส่วนตัวแห่งคฤหาสน์แบล็กวูด ฉลาด สุขุม ช่างสังเกต ซ่อนความอ่อนไหวไว้เบื้องหลังคัมภีร์โบราณและชุดกำมะหยี่สง่างาม",
+    traits: ["ฉลาดหลักแหลม", "ช่างสังเกต", "สุขุมรอบคอบ", "เปี่ยมเสน่ห์"],
     voice: "Sophia",
     storiesCount: 3,
     createdAt: "2026-10-15T10:30:00Z"
   },
   {
     id: "char-julian-thorne",
-    name: "Julian Thorne",
-    role: "Lord of Blackwood",
+    name: "Julian Thorne (จูเลียน ธอร์น)",
+    role: "ลอร์ดแห่งแบล็กวูด",
     avatar: "/assets/character_julian.jpg",
-    bio: "The enigmatic master of Blackwood Manor. Aristocratic, fiercely protective, haunted by family secrets and captivated by Elena's refusal to bow to his command.",
-    traits: ["Commanding", "Brooding", "Protective", "Charismatic"],
+    bio: "นายใหญ่ผู้ลึกลับแห่งคฤหาสน์แบล็กวูด ชายหนุ่มผู้สูงศักดิ์ หวงแหน ปกป้องอย่างดุดัน ถูกครอบงำด้วยความลับของตระกูล และหลงใหลในความกล้าท้าทายของเอเลน่า",
+    traits: ["เด็ดขาดทรงพลัง", "เงียบขรึม", "ปกป้องอย่างดุดัน", "มีเสน่ห์ดึงดูด"],
     voice: "Liam",
     storiesCount: 3,
     createdAt: "2026-10-15T11:00:00Z"
   },
   {
     id: "char-genevieve-dubois",
-    name: "Lady Genevieve",
-    role: "Rival Antiquarian",
+    name: "Lady Genevieve (เลดี้ เจเนวิฟ)",
+    role: "นักสะสมโบราณวัตถุคู่แข่ง",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
-    bio: "A Parisian socialite and antique collector with a penchant for high-stakes games and uncovering forbidden historical lore before anyone else.",
-    traits: ["Ambitious", "Sharp-tongued", "Mysterious", "Calculating"],
+    bio: "ไฮโซสาวทรงเสน่ห์ชาวปารีสและนักสะสมโบราณวัตถุหายาก ผู้ชื่นชอบเกมเดิมพันสูงและการไขปริศนาทางประวัติศาสตร์ก่อนใคร",
+    traits: ["ทะเยอทะยาน", "ฝีปากกล้า", "ลึกลับน่าค้นหา", "ช่างวางแผน"],
     voice: "Emma",
     storiesCount: 1,
     createdAt: "2026-10-20T14:20:00Z"
@@ -39,97 +39,97 @@ export const INITIAL_RELATIONSHIPS = [
     id: "rel-1",
     char1Id: "char-elena-vance",
     char2Id: "char-julian-thorne",
-    kind: "Lovers",
-    description: "An intoxicating pull forbidden by oath, simmering behind closed library doors."
+    kind: "คนรัก / ลึกซึ้ง",
+    description: "แรงดึงดูดต้องห้ามที่ฝ่าฝืนคำสาบาน คุกรุ่นอยู่เบื้องหลังประตูปิดสนิทของห้องสมุด"
   },
   {
     id: "rel-2",
     char1Id: "char-elena-vance",
     char2Id: "char-genevieve-dubois",
-    kind: "Rivals",
-    description: "Competing to translate the forgotten codex of Blackwood."
+    kind: "คู่ปรับ / คู่แข่ง",
+    description: "แข่งขันกันเพื่อถอดรหัสคัมภีร์โบราณที่สาบสูญแห่งแบล็กวูด"
   },
   {
     id: "rel-3",
     char1Id: "char-julian-thorne",
     char2Id: "char-genevieve-dubois",
-    kind: "Exes",
-    description: "A diplomatic engagement ended in cold civility years ago."
+    kind: "อดีตคนรัก",
+    description: "การหมั้นหมายทางการเมืองที่ยุติลงด้วยความเย็นชาเมื่อหลายปีก่อน"
   }
 ];
 
 export const INITIAL_STORIES = [
   {
     id: "8760f9fd-3c2e-4ed2-8d4a-ac1f0249cbee",
-    title: "Midnight Whispers: A Dark Academia Romance",
-    subtitle: "In the shadowed corridors of Blackwood Manor, silence was never safe.",
+    title: "Midnight Whispers: เสียงกระซิบยามเที่ยงคืน",
+    subtitle: "ภายใต้ทางเดินอันมืดมิดของคฤหาสน์แบล็กวูด ความเงียบงันไม่เคยปลอดภัยอีกต่อไป",
     cover: "/assets/story_cover_midnight.jpg",
     author: "Evelyn Reed",
-    tags: ["Dark Academia", "Forbidden Romance", "Slow Burn", "Aristocracy"],
+    tags: ["ดาร์ก อะคาเดเมีย", "ความรักต้องห้าม", "รักค่อยเป็นค่อยไป", "ชนชั้นสูง"],
     wordCount: 4850,
     estimatedMinutes: 18,
     progress: 35,
-    lastRead: "Just now",
-    characters: ["Elena Vance", "Julian Thorne"],
+    lastRead: "เมื่อสักครู่",
+    characters: ["Elena Vance (เอเลน่า)", "Julian Thorne (จูเลียน)"],
     chapters: [
       {
         number: 1,
-        title: "The Restricted Vault",
+        title: "ห้องนิรภัยต้องห้าม",
         paragraphs: [
-          "The grandfather clock in the gallery chimed midnight, twelve low iron notes that seemed to vibrate directly through the parquetry floor. In the private library of Blackwood Manor, Elena Vance did not lift her quill.",
-          "Dust motes danced in the solitary pool of amber illumination cast by her desk lamp. Before her lay the leather-bound ledger—its vellum pages yellowed with centuries of unread secrets. She had been warned twice by the estate steward: the fourth floor east wing was strictly off-limits to guests after sundown.",
-          "A quiet rustle behind the mahogany shelves caught her breath. The air grew perceptibly cooler, carrying the faint, intoxicating scent of cedarwood, bitter espresso, and rain.",
-          "\"You read with an intensity that borders on heresy, Miss Vance.\"",
-          "Elena turned. Julian Thorne stood in the threshold of the arches. His dark charcoal waistcoat was unbuttoned at the throat, his collar slightly loosened. In the dim candlelight, the angles of his jaw were cast in sharp relief.",
-          "\"Lord Thorne,\" Elena said, keeping her voice as steady as her pulse would allow. \"I understood the archives were cataloged at your discretion.\"",
-          "\"At my discretion, yes,\" Julian replied softly, taking two deliberate steps into the room until he stood just inches from the edge of her mahogany writing desk. \"Not in secret. And certainly not when the house sleeps.\"",
-          "His gaze dipped to the open manuscript between her trembling hands, then lifted back to her eyes—unflinching, obsidian, and filled with an ember she hadn't dared to ignite."
+          "นาฬิกาตั้งพื้นโบราณในห้องโถงใหญ่ตีระฆังบอกเวลาเที่ยงคืน เสียงเหล็กทุ้มต่ำสิบสองครั้งดังกังวานผ่านพื้นไม้ปาร์เกต์ขัดมัน ทว่าในห้องสมุดส่วนตัวของคฤหาสน์แบล็กวูด เอเลน่า แวนซ์ ไม่แม้แต่จะวางปากกาขนนกในมือลง",
+          "ละอองฝุ่นเต้นระบำในวงแสงสีอำพันจากโคมไฟตั้งโต๊ะ ตรงหน้าเธอคือสมุดบันทึกปกหนังแท้—หน้ากระดาษหนังลูกวัวสีเหลืองกรอบอัดแน่นด้วยความลับหลายร้อยปีที่ไม่เคยมีใครอ่าน เธอถูกพ่อบ้านเตือนถึงสองครั้งแล้วว่า ปีกทิศตะวันออกชั้นสี่เป็นเขตห้ามแขกเข้าโดยเด็ดขาดหลังอาทิตย์ตกดิน",
+          "เสียงฝีเท้าแผ่วเบาหลังชั้นวางหนังสือไม้มะฮอกกานีทำให้ลมหายใจเธอสะดุด อากาศในห้องเย็นลงอย่างสัมผัสได้ พร้อมกลิ่นหอมกรุ่นของไม้ซีดาร์ กาแฟเอสเพรสโซเข้มข้น และสายฝนที่ชวนลุ่มหลง",
+          "\"คุณอ่านหนังสือด้วยความมุ่งมั่นที่เกือบจะหมิ่นเหม่ต่อความผิดบาปเลยนะ คุณแวนซ์\"",
+          "เอเลน่าหันกลับไป ลอร์ดจูเลียน ธอร์น ยืนตระหง่านอยู่ใต้ซุ้มประตูโค้ง เสื้อกั๊กสีชาร์โคลเข้มปลดกระดุมที่ลำคอ ในแสงเทียนสลัว โครงหน้าคมคายและสันกรามเด่นชัดสะกดสายตา",
+          "\"ลอร์ดธอร์น\" เอเลน่าเอ่ย พยายามคุมน้ำเสียงให้นิ่งพอๆ กับจังหวะชีพจรที่เต้นระรัว \"ดิฉันเข้าใจว่าบันทึกโบราณเหล่านี้เปิดให้ตรวจสอบได้ตามดุลยพินิจของคุณ\"",
+          "\"ตามดุลยพินิจของฉัน ใช่...\" จูเลียนตอบเสียงนุ่มทุ้ม ก้าวเข้ามาสองก้าวอย่างเชื่องช้าจนหยุดอยู่ห่างจากโต๊ะเขียนหนังสือของเธอเพียงไม่กี่คืบ \"แต่ไม่ใช่แบบแอบซ่อน และไม่ใช่ในยามที่ทั้งคฤหาสน์หลับใหลเช่นนี้\"",
+          "สายตาคมกริบของเขาทอดมองลงมายังสมุดบันทึกที่เปิดอยู่ระหว่างมือที่สั่นเทาของเธอ ก่อนจะสบตาเธออย่างไม่ยอมลดละ ดวงตาสีรัตติกาลนั้นมีเปลวไฟบางอย่างที่เธอไม่เคยกล้าจุดประกาย"
         ]
       },
       {
         number: 2,
-        title: "Shadows and Cider",
+        title: "เงามืดและไวน์หมัก",
         paragraphs: [
-          "Neither moved. The storm outside lashed against the cathedral stained-glass windows, rain cascading like melted silver down the gothic panes.",
-          "\"I was verifying the 1892 lineage record,\" Elena whispered, though in the vast quiet of the library, the whisper resonated like a confession.",
-          "Julian leaned in, one palm resting firmly against the aged wood beside her inkwell. The proximity was intoxicating. Elena could hear the faint rhythm of his breathing, steady yet edged with tension.",
-          "\"The records do not change at midnight, Elena,\" he murmured, his voice dropping into that low, velvet cadence that made her fingers curl against the velvet fabric of her dress. \"What were you truly searching for?\"",
-          "\"Answers you have refused to speak aloud.\"",
-          "A ghost of a smile touched Julian's lips—dangerous, appreciative, and entirely unrepentant. He reached out, his thumb gently grazing the ink stain on her index finger. A tremor shot up her spine at the contact, warm and electric."
+          "ไม่มีใครขยับเขยื้อน พายุภายนอกกระหน่ำใส่กระจกสีโกธิก สายฝนไหลรินราวกับธารเงินละลายอาบหน้าต่างบานสูง",
+          "\"ดิฉันเพียงแค่ตรวจสอบบันทึกสายตระกูลปี 1892 เท่านั้น\" เอเลน่ากระซิบ ทว่าในความเงียบสงัดของห้องสมุด เสียงกระซิบนั้นดังก้องราวกับคำสารภาพบาป",
+          "จูเลียนโน้มตัวลงมา มือข้างหนึ่งวางทาบลงบนโต๊ะไม้ข้างขวดหมึก ความใกล้ชิดนั้นเย้ายวนจนแทบหยุดหายใจ เอเลน่าได้ยินเสียงลมหายใจสม่ำเสมอของเขาที่แฝงความตึงเครียด",
+          "\"บันทึกประวัติศาสตร์ไม่ได้เปลี่ยนไปตอนเที่ยงคืนหรอกนะ เอเลน่า\" เขาพึมพำ น้ำเสียงทุ้มต่ำดุจกำมะหยี่ทำให้ปลายนิ้วของเธอจิกลงบนผ้ากำมะหยี่ของกระโปรง \"คุณกำลังตามหาอะไรกันแน่?\"",
+          "\"คำตอบที่คุณปฏิเสธที่จะเอ่ยมันออกมาต่อหน้าดิฉัน\"",
+          "รอยยิ้มจางๆ ผุดขึ้นที่ริมฝีปากของจูเลียน—อันตราย ชื่นชม และไม่คิดจะขอโทษ เขายื่นมือออกไป ปลายนิ้วโป้งสัมผัสคราบหมึกบนนิ้วชี้ของเธออย่างแผ่วเบา ความอบอุ่นแล่นพล่านขึ้นตามแนวกระดูกสันหลังราวกับกระแสไฟฟ้า"
         ]
       },
       {
         number: 3,
-        title: "The Unspoken Vow",
+        title: "คำสาบานที่ไร้เสียง",
         paragraphs: [
-          "\"You ask questions that will tear down this entire house,\" he warned, though he did not pull his hand away. Instead, his fingers curled around hers, lifting her hand from the page with deliberate reverence.",
-          "\"Perhaps this house has stood in the dark for far too long,\" she countered, refusing to avert her eyes.",
-          "\"And what if the darkness is what keeps you safe?\" Julian's thumb traced the line of her wrist, measuring the wild, erratic cadence of her heartbeat. \"What if I am what keeps you safe?\"",
-          "The distance between them vanished like mist before fire. In that quiet sanctuary of ancient books and forgotten promises, Elena knew there was no returning to the scholar she had been when she first arrived at Blackwood."
+          "\"สิ่งที่คุณถาม อาจพังทลายคฤหาสน์หลังนี้ทั้งหลังลงมาได้\" เขาเตือน ทว่ามือของเขากลับไม่ยอมปล่อย นิ้วเรียวยาวประสานเข้ากับนิ้วมือของเธอ ยกมือเธอขึ้นจากหน้ากระดาษอย่างทะนุถนอมและเปี่ยมความเคารพ",
+          "\"บางทีคฤหาสน์หลังนี้อาจยืนหยัดอยู่ในความมืดมิดมานานเกินไปแล้ว\" เธอตอบกลับอย่างไม่ยอมหลบสายตา",
+          "\"แล้วถ้าหากความมืดมิดคือสิ่งที่ปกป้องคุณไว้ล่ะ?\" นิ้วโป้งของจูเลียนลูบผ่านข้อมือของเธอ สัมผัสถึงชีพจรที่เต้นแรงและไม่เป็นจังหวะ \"และถ้าหากตัวฉัน คือสิ่งเดียวที่ปกป้องคุณให้ปลอดภัยล่ะ?\"",
+          "ระยะห่างระหว่างเขากับเธอสลายหายไปราวกับสายหมอกต้องเปลวเพลิง ในสถานที่ศักดิ์สิทธิ์อันเงียบสงัดที่เต็มไปด้วยตำราโบราณและคำสัญญาที่ถูกลืม เอเลน่ารู้ดีว่าเธอไม่อาจหวนกลับไปเป็นนักวิชาการคนเดิมในวันที่ก้าวเข้ามายังแบล็กวูดได้อีกต่อไป"
         ]
       }
     ]
   },
   {
     id: "story-velvet-oath",
-    title: "The Velvet Oath",
-    subtitle: "A arranged marriage of convenience between two sworn rivals in Renaissance Venice.",
+    title: "The Velvet Oath: คำสาบานกำมะหยี่",
+    subtitle: "การแต่งงานเพื่อผลประโยชน์ระหว่างสองคู่ปรับตลอดกาล ท่ามกลางสายหมอกแห่งเวนิส",
     cover: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80",
     author: "Elena & Julian",
-    tags: ["Enemies to Lovers", "Historical Romance", "Venice", "Intrigue"],
+    tags: ["จากคู่ปรับสู่คู่รัก", "โรแมนซ์ย้อนยุค", "เวนิส", "แผนการลับ"],
     wordCount: 3200,
     estimatedMinutes: 12,
     progress: 100,
-    lastRead: "Yesterday",
-    characters: ["Elena Vance", "Julian Thorne", "Lady Genevieve"],
+    lastRead: "เมื่อวานนี้",
+    characters: ["Elena Vance (เอเลน่า)", "Julian Thorne (จูเลียน)", "Lady Genevieve (เจเนวิฟ)"],
     chapters: [
       {
         number: 1,
-        title: "The Gondola at Dusk",
+        title: "เรือกอนโดลายามพลบค่ำ",
         paragraphs: [
-          "The lagoon mirrored the twilight sky in hues of bruised amethyst and gold. Elena pulled her silk cloak tighter against the evening damp, watching the cloaked figure steer the gondola into the shadowed canal.",
-          "\"You took a significant risk coming alone,\" Julian's voice drifted through the fog, silhouetted against the lantern light.",
-          "\"I take risks only when the prize justifies the danger,\" Elena replied."
+          "ผืนน้ำทะเลสาบสะท้อนท้องฟ้ายามโพล้เพล้ในเฉดสีม่วงอเมทิสต์และประกายทอง เอเลน่ากระชับผ้าคลุมไหมให้แน่นขึ้นเพื่อต้านทานไอชื้นยามค่ำคืน สายตามองดูร่างในชุดคลุมที่กำลังพายเรือกอนโดลาเข้ามาในคลองเงามืด",
+          "\"คุณเสี่ยงมากที่ยอมมาคนเดียวตามลำพัง\" เสียงของจูเลียนแว่วผ่านม่านหมอก เงาร่างของเขาทาบกับแสงตะเกียงโบราณ",
+          "\"ดิฉันจะเสี่ยง ก็ต่อเมื่อรางวัลนั้นคุ้มค่ากับอันตรายเสมอค่ะ\" เอเลน่าตอบกลับด้วยรอยยิ้มมั่นใจ"
         ]
       }
     ]
@@ -137,18 +137,18 @@ export const INITIAL_STORIES = [
 ];
 
 export const SURPRISE_PROMPTS = [
-  "A cold thunderstorm traps a quiet archivist and a brooding billionaire in a secluded mountain estate library with only one fireplace lit.",
-  "An arranged royal marriage between sworn rival kingdoms, where the icy prince discovers his new bride is a covert master spy.",
-  "Two rival surgeons who have competed for chief of medicine for five years are forced into sharing a single hotel room during a blizzard conference.",
-  "A Victorian lady secretly writes scandalous romance novels under a pseudonym, until London's most notorious rake discovers her manuscript.",
-  "A bodyguard sworn to silence begins to lose his professional detachment when his high-profile client refuses to leave his side during a dangerous gala.",
-  "An ancient vampire lord hires a mortal forensic historian to decipher an ancient diary that contains the secret of his lost humanity."
+  "พายุฝนฟ้าคะนองในคืนหนาวเหน็บ ขังนักวิชาการสาวผู้รักสันโดษกับมหาเศรษฐีหนุ่มผู้เงียบขรึมไว้ในห้องสมุดคฤหาสน์บนยอดเขา โดยมีเตาผิงเพียงจุดเดียวที่ยังลุกไหม้",
+  "การแต่งงานคลุมถุงชนระหว่างสองราชวงศ์คู่แค้น เจ้าชายผู้เย็นชาค้นพบในคืนวันวิวาห์ว่า เจ้าสาวคนสวยของเขาแท้จริงคือสายลับมือฉมังแห่งแผ่นดิน",
+  "ศัลยแพทย์สองคนที่เป็นคู่ปรับชิงตำแหน่งหัวหน้าแผนกมาตลอด 5 ปี ถูกบีบให้ต้องแชร์ห้องพักโรงแรมเดียวกันระหว่างพายุหิมะถล่มงานประชุมวิชาการ",
+  "สตรีชั้นสูงในยุควิกตอเรียแอบเขียนนิยายรักเร่าร้อนชวนอื้อฉาวภายใต้นามปากกาลับ จนกระทั่งลอร์ดหนุ่มเสเพลผู้ฉาวโฉ่ที่สุดในลอนดอนบังเอิญพบต้นฉบับของเธอ",
+  "บอดี้การ์ดหนุ่มผู้สาบานว่าจะรักษาความเงียบ เริ่มสูญเสียความเยือกเย็นเมื่อคุณหนูทายาทมหาเศรษฐีไม่ยอมห่างกายเขาแม้แต่ก้าวเดียวในงานกาล่าสุดอันตราย",
+  "ลอร์ดแวมไพร์โบราณผู้สง่างาม ว่าจ้างนักประวัติศาสตร์สาวเพื่อช่วยถอดรหัสไดอารี่โบราณที่กุมความลับเรื่องความเป็นมนุษย์ที่สาบสูญของเขา"
 ];
 
 export const AUDIO_VOICES = [
-  { id: "Sophia", name: "Sophia", tone: "Warm, Breathless & Intimate", gender: "Female", pitch: 1.1, rate: 0.95 },
-  { id: "Liam", name: "Liam", tone: "Deep, Velvety & Commanding", gender: "Male", pitch: 0.85, rate: 0.95 },
-  { id: "Emma", name: "Emma", tone: "Refined, Melodic & Expressive", gender: "Female", pitch: 1.0, rate: 1.0 },
-  { id: "Alexander", name: "Alexander", tone: "Crisp, Aristocratic & Intense", gender: "Male", pitch: 0.9, rate: 0.98 },
-  { id: "Narrator", name: "The Narrator", tone: "Neutral, Cinematic & Atmospheric", gender: "Neutral", pitch: 1.0, rate: 1.0 }
+  { id: "Sophia", name: "Sophia (โซเฟีย)", tone: "อบอุ่น นุ่มนวล ชวนหลงใหล", gender: "Female", pitch: 1.1, rate: 0.95 },
+  { id: "Liam", name: "Liam (เลียม)", tone: "ทุ้มลึก หนักแน่น ทรงอำนาจ", gender: "Male", pitch: 0.85, rate: 0.95 },
+  { id: "Emma", name: "Emma (เอ็มม่า)", tone: "สง่างาม ไพเราะ เปี่ยมอารมณ์", gender: "Female", pitch: 1.0, rate: 1.0 },
+  { id: "Alexander", name: "Alexander (อเล็กซานเดอร์)", tone: "คมชัด ชนชั้นสูง เยือกเย็นน่าค้นหา", gender: "Male", pitch: 0.9, rate: 0.98 },
+  { id: "Narrator", name: "The Narrator (ผู้บรรยาย)", tone: "น้ำเสียงบรรยายภาพยนตร์ ลึกซึ้งสมจริง", gender: "Neutral", pitch: 1.0, rate: 1.0 }
 ];

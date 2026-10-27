@@ -9,7 +9,7 @@ export class UpgradeModal {
 
   addCredits(amount) {
     store.addCredits(amount);
-    alert(`Successfully added 💎 ${amount} credits to your account!`);
+    alert(`เติมเครดิต 💎 ${amount} เข้าบัญชีของคุณเรียบร้อยแล้ว!`);
     this.onClose();
   }
 
@@ -19,40 +19,40 @@ export class UpgradeModal {
         <div class="modal-content">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.5rem;">
             <div>
-              <span style="font-size:0.8rem; color:var(--primary); font-weight:700; text-transform:uppercase; letter-spacing:0.06em;">MEMBERSHIP & CREDITS</span>
-              <h2 style="font-size:2rem; font-weight:700; margin-top:0.25rem;">Unlock your full story studio</h2>
+              <span style="font-size:0.8rem; color:var(--primary); font-weight:700; text-transform:uppercase; letter-spacing:0.06em;">สมาชิก & เครดิต</span>
+              <h2 style="font-size:2rem; font-weight:700; margin-top:0.25rem;">ปลดล็อกสตูดิโอแต่งนิยายเต็มรูปแบบ</h2>
             </div>
             <button class="icon-btn" id="btn-close-upgrade" style="font-size:1.5rem;">×</button>
           </div>
 
           <p style="color:var(--text-secondary); margin-bottom:2rem; line-height:1.6;">
-            Write unlimited romance stories, craft detailed custom characters with unique AI audiobook voices, and listen without limits.
+            แต่งนิยายรักได้ไม่จำกัด ออกแบบตัวละครพร้อมเสียงพากย์ AI เฉพาะตัว และฟังหนังสือเสียงได้แบบไร้ขีดจำกัด
           </p>
 
           <div style="background:var(--bg-surface-elevated); border:1px solid var(--border-medium); border-radius:var(--radius-lg); padding:1.5rem; margin-bottom:1.75rem;">
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
-              <h3 style="font-size:1.3rem; font-weight:700;">Author Plan</h3>
-              <span style="font-size:1.4rem; font-weight:700; color:#ff6896;">$19 <span style="font-size:0.85rem; color:var(--text-muted); font-weight:400;">/ month</span></span>
+              <h3 style="font-size:1.3rem; font-weight:700;">แพ็กเกจนักเขียน (Author Plan)</h3>
+              <span style="font-size:1.4rem; font-weight:700; color:#ff6896;">฿690 <span style="font-size:0.85rem; color:var(--text-muted); font-weight:400;">/ เดือน</span></span>
             </div>
             <ul style="color:var(--text-secondary); font-size:0.92rem; list-style:none; display:flex; flex-direction:column; gap:0.6rem;">
-              <li>✨ <strong>600 credits</strong> every month (up to 100 story chapters)</li>
-              <li>🎙️ <strong>Exclusive Audiobook Voices</strong> (Sophia, Liam, Alexander, Emma)</li>
-              <li>👥 <strong>Unlimited Characters & Relationship Maps</strong></li>
-              <li>⚡ <strong>High-speed Uncensored AI story generator</strong></li>
+              <li>✨ <strong>600 เครดิต</strong> ทุกเดือน (แต่งนิยายได้สูงสุด 100 ตอน)</li>
+              <li>🎙️ <strong>สิทธิ์เข้าถึงเสียงพากย์พรีเมียม</strong> (Sophia, Liam, Alexander, Emma)</li>
+              <li>👥 <strong>สร้างตัวละครและผังความสัมพันธ์ได้ไม่จำกัด</strong></li>
+              <li>⚡ <strong>ระบบ AI สร้างเรื่องราวความเร็วสูง ไร้การปิดกั้น</strong></li>
             </ul>
           </div>
 
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
             <button class="btn-secondary" id="btn-add-150" style="padding:0.75rem; justify-content:center; text-align:center;">
-              + 150 Credits (Test)
+              + 150 เครดิต (ทดลองใช้งาน)
             </button>
             <button class="btn-create-story" id="btn-add-600" style="padding:0.75rem; justify-content:center; text-align:center;">
-              + 600 Credits (Author)
+              + 600 เครดิต (นักเขียน)
             </button>
           </div>
 
           <p style="text-align:center; font-size:0.78rem; color:var(--text-muted);">
-            No commitment. Cancel or switch anytime with 1-click.
+            ไม่มีข้อผูกมัด ยกเลิกหรือเปลี่ยนแผนได้ตลอดเวลาเพียงคลิกเดียว
           </p>
         </div>
       </div>

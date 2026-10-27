@@ -1,11 +1,11 @@
 import { INITIAL_CHARACTERS, INITIAL_RELATIONSHIPS, INITIAL_STORIES } from '../data/mockData.js';
 
 const STORAGE_KEYS = {
-  CHARACTERS: 'amore_characters_v1',
-  RELATIONSHIPS: 'amore_relationships_v1',
-  STORIES: 'amore_stories_v1',
+  CHARACTERS: 'amore_characters_th_v2',
+  RELATIONSHIPS: 'amore_relationships_th_v2',
+  STORIES: 'amore_stories_th_v2',
   CREDITS: 'amore_credits_v1',
-  READER_SETTINGS: 'amore_reader_settings_v1'
+  READER_SETTINGS: 'amore_reader_settings_th_v1'
 };
 
 class Store {
@@ -31,8 +31,8 @@ class Store {
       localStorage.setItem(STORAGE_KEYS.READER_SETTINGS, JSON.stringify({
         theme: 'dark', // 'dark' | 'sepia' | 'light'
         fontSize: 19, // in px
-        lineHeight: 1.8,
-        fontFamily: 'Literata'
+        lineHeight: 1.85,
+        fontFamily: 'Prompt'
       }));
     }
   }
@@ -69,8 +69,8 @@ class Store {
     } else {
       const newChar = {
         id: char.id || `char-${Date.now()}`,
-        name: char.name || 'Unnamed Character',
-        role: char.role || 'Protagonist',
+        name: char.name || 'ตัวละครใหม่',
+        role: char.role || 'ตัวเอก',
         avatar: char.avatar || '/assets/character_elena.jpg',
         bio: char.bio || '',
         traits: char.traits || [],

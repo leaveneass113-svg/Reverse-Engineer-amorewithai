@@ -39,37 +39,37 @@ export class Navigation {
   render() {
     this.container.innerHTML = `
       <header class="app-header" id="app-header">
-        <div class="logo-container" id="nav-logo" title="AmoreWithAI Home">
+        <div class="logo-container" id="nav-logo" title="หน้าแรก AmoreWithAI">
           <span class="logo-text">Amorewithai<span class="logo-heart">♥</span></span>
         </div>
 
         <nav class="nav-links">
           <button class="nav-item ${this.activeTab === 'library' ? 'active' : ''}" data-tab="library" id="nav-tab-library">
             <span>📚</span>
-            <span>Library</span>
+            <span>คลังนิยาย</span>
           </button>
           <button class="nav-item ${this.activeTab === 'characters' ? 'active' : ''}" data-tab="characters" id="nav-tab-characters">
             <span>👥</span>
-            <span>Characters</span>
+            <span>ตัวละคร</span>
           </button>
           <button class="nav-item" id="nav-btn-upgrade">
             <span>💎</span>
-            <span>Upgrade</span>
+            <span>อัปเกรด</span>
           </button>
         </nav>
 
         <div class="nav-actions">
-          <div class="credits-badge" id="nav-credits-badge" title="Your available credits">
+          <div class="credits-badge" id="nav-credits-badge" title="เครดิตของคุณ">
             <span>💎</span>
             <span>${this.credits}</span>
           </div>
 
           <button class="btn-create-story" id="nav-btn-create-story">
             <span>✨</span>
-            <span>Create story</span>
+            <span>สร้างนิยายใหม่</span>
           </button>
 
-          <div class="user-avatar-btn" id="nav-user-profile" title="Account settings">
+          <div class="user-avatar-btn" id="nav-user-profile" title="ตั้งค่าบัญชี">
             <span>I</span>
           </div>
         </div>

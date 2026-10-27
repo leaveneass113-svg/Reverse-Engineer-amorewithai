@@ -17,6 +17,7 @@ export class StoryCreator {
     const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SpeechRec) {
       this.recognition = new SpeechRec();
+      this.recognition.lang = 'th-TH';
       this.recognition.continuous = false;
       this.recognition.interimResults = false;
       this.recognition.onresult = (event) => {
@@ -37,13 +38,13 @@ export class StoryCreator {
     const micBtn = this.container.querySelector('#btn-voice-input');
     if (micBtn) {
       micBtn.style.color = val ? '#ef4444' : '';
-      micBtn.title = val ? 'Listening... speak now' : 'Voice input';
+      micBtn.title = val ? 'กำลังฟัง... กรุณาพูดไอเดียของคุณ' : 'สั่งงานด้วยเสียง';
     }
   }
 
   toggleVoice() {
     if (!this.recognition) {
-      alert('Speech recognition is not supported in this browser. Please type your story idea.');
+      alert('เบราว์เซอร์นี้ไม่รองรับการสั่งงานด้วยเสียง กรุณาพิมพ์ไอเดียเรื่องราวของคุณ');
       return;
     }
     if (this.isListening) {
@@ -72,12 +73,12 @@ export class StoryCreator {
     const promptText = textarea ? textarea.value.trim() : '';
 
     if (!promptText) {
-      alert('Please enter a description or idea for your story, or click "Surprise me"!');
+      alert('กรุณากรอกคำอธิบายหรือไอเดียเรื่องราวของคุณ หรือกด "สุ่มไอเดียพล็อต"!');
       return;
     }
 
     if (store.getCredits() < 6) {
-      alert('Not enough credits! Please click "Upgrade" to get more credits.');
+      alert('เครดิตไม่เพียงพอ! กรุณากด "อัปเกรด" เพื่อรับเครดิตเพิ่ม');
       return;
     }
 
@@ -85,7 +86,6 @@ export class StoryCreator {
     this.isGenerating = true;
 
     // Render streaming box
-    const cardContainer = this.container.querySelector('#prompt-card-wrapper');
     const streamContainer = this.container.querySelector('#streaming-container');
     if (streamContainer) {
       streamContainer.style.display = 'block';
@@ -95,14 +95,14 @@ export class StoryCreator {
     const titleTarget = this.container.querySelector('#gen-story-title');
     const contentTarget = this.container.querySelector('#gen-stream-text');
 
-    const generatedTitle = "Midnight Echoes in the Velvet Hall";
+    const generatedTitle = "เสียงสะท้อนเที่ยงคืนในโถงกำมะหยี่";
     if (titleTarget) titleTarget.textContent = generatedTitle;
 
     const sampleStreamParagraphs = [
-      "The rain tapped in staccato rhythms against the tall archway windows of Blackwood Manor.",
-      "Elena tightened her grasp upon the leather-bound ledger, the faint golden script warm beneath her fingertips. In the stillness of the midnight library, every footfall was amplified.",
-      "\"I wondered how long it would take you to find this room, Miss Vance,\" Lord Julian Thorne's voice murmured from the shadows between the mahogany shelves.",
-      "She turned to meet his gaze. His eyes held an ember of danger and devotion, unresolved tensions from a lifetime of unspoken longing."
+      "สายฝนโปรยปรายกระทบหน้าต่างกระจกโค้งบานสูงของคฤหาสน์แบล็กวูดเป็นจังหวะต่อเนื่อง",
+      "เอเลน่ากระชับสมุดบันทึกโบราณปกหนังไว้แน่น ตัวอักษรสีทองจางๆ อุ่นวาบอยู่ใต้ปลายนิ้ว ในความเงียบสงัดยามเที่ยงคืน ทุกย่างก้าวสะท้อนก้องอย่างชัดเจน",
+      "\"ผมสงสัยอยู่ว่าคุณต้องใช้เวลานานแค่ไหนกว่าจะพบห้องนี้ คุณแวนซ์\" เสียงกระซิบทุ้มต่ำของลอร์ดจูเลียน ธอร์น ดังขึ้นจากเงามืดระหว่างชั้นหนังสือไม้มะฮอกกานี",
+      "เธอหันกลับไปสบสายตาเขา ดวงตาสีรัตติกาลคู่นั้นมีทั้งประกายอันตรายและความผูกพันลึกซึ้ง ความตึงเครียดที่สะสมมาตลอดหลายปีแห่งความปรารถนาที่มิอาจเอ่ยคำ"
     ];
 
     let fullText = "";
@@ -124,26 +124,26 @@ export class StoryCreator {
       title: generatedTitle,
       subtitle: promptText.substring(0, 90) + '...',
       cover: "/assets/story_cover_midnight.jpg",
-      author: "You & Amore AI",
-      tags: ["Dark Romance", "Intrigue", "Original"],
+      author: "คุณ & Amore AI",
+      tags: ["ดาร์ก โรแมนซ์", "ความลับในคฤหาสน์", "ออริจินัล"],
       wordCount: 3200,
       estimatedMinutes: 14,
       progress: 10,
-      lastRead: "Just now",
-      characters: ["Elena Vance", "Julian Thorne"],
+      lastRead: "เมื่อสักครู่",
+      characters: ["Elena Vance (เอเลน่า)", "Julian Thorne (จูเลียน)"],
       chapters: [
         {
           number: 1,
-          title: "The Midnight Encounter",
+          title: "การพบกันยามเที่ยงคืน",
           paragraphs: sampleStreamParagraphs
         },
         {
           number: 2,
-          title: "The Unspoken Accord",
+          title: "ข้อตกลงที่ไร้เสียง",
           paragraphs: [
-            "Julian stepped forward until the candlelight cast their shadows together against the ancient tapestries.",
-            "\"You know why I cannot let you leave this library tonight,\" he whispered, his hand gently lifting her chin.",
-            "Elena's breath caught, the paper fluttering to the table between them as the storm raged outside."
+            "จูเลียนก้าวเข้ามาจนเงาของทั้งคู่ทาบทับลงบนผืนพรมทอมือโบราณใต้แสงเทียน",
+            "\"คุณก็รู้ดีว่าทำไมผมถึงปล่อยให้คุณก้าวออกจากห้องสมุดนี้ในคืนนี้ไม่ได้\" เขากระซิบ ปลายนิ้วสัมผัสคางเธออย่างแผ่วเบา",
+            "เอเลน่าลืมหายใจ แผ่นกระดาษร่วงหล่นลงบนโต๊ะระหว่างทั้งสอง ขณะที่พายุด้านนอกยังคงโหมกระหน่ำ"
           ]
         }
       ]
@@ -162,52 +162,52 @@ export class StoryCreator {
     this.container.innerHTML = `
       <section class="hero-view">
         <h1 class="hero-title">
-          Turn your fantasy into a story you can <em>read, see and hear</em>
+          เปลี่ยนจินตนาการของคุณ ให้เป็นนิยายรักที่<em>อ่าน เห็นภาพ และรับฟังได้</em>
         </h1>
         <p class="hero-subtitle">
-          Describe it in a few words. AI writes the rest, with no filters.
+          อธิบายเพียงไม่กี่คำ AI จะรังสรรค์เรื่องราวที่เหลือให้อย่างไร้ขอบเขต
         </p>
 
         <div class="prompt-card" id="prompt-card-wrapper">
           <textarea 
             class="prompt-textarea" 
             id="prompt-textarea"
-            placeholder="A character, a situation, or a scene you have in mind. Start with a few words, or add the details that matter to you."
+            placeholder="ตัวละคร เหตุการณ์ หรือฉากที่คุณคิดไว้... เริ่มต้นด้วยคำสั้นๆ หรือใส่รายละเอียดที่คุณต้องการได้ตามใจ"
           >${SURPRISE_PROMPTS[0]}</textarea>
 
           <div class="prompt-tags">
-            <span class="prompt-tag" data-tag="Dark Academia">🏛️ Dark Academia</span>
-            <span class="prompt-tag" data-tag="Enemies to Lovers">⚔️ Enemies to Lovers</span>
-            <span class="prompt-tag" data-tag="Forbidden Romance">🥀 Forbidden Romance</span>
-            <span class="prompt-tag" data-tag="Billionaire & Scholar">💎 Billionaire & Scholar</span>
-            <span class="prompt-tag" data-tag="Slow Burn">🔥 Slow Burn</span>
+            <span class="prompt-tag" data-tag="ดาร์ก อะคาเดเมีย">🏛️ ดาร์ก อะคาเดเมีย</span>
+            <span class="prompt-tag" data-tag="จากคู่ปรับสู่คู่รัก">⚔️ จากคู่ปรับสู่คู่รัก</span>
+            <span class="prompt-tag" data-tag="ความรักต้องห้าม">🥀 ความรักต้องห้าม</span>
+            <span class="prompt-tag" data-tag="มหาเศรษฐี & บัณฑิตสาว">💎 มหาเศรษฐี & บัณฑิตสาว</span>
+            <span class="prompt-tag" data-tag="รักค่อยเป็นค่อยไป">🔥 รักค่อยเป็นค่อยไป</span>
           </div>
 
           <div class="prompt-toolbar">
             <div class="prompt-tool-actions">
-              <button class="tool-btn" id="btn-voice-input" title="Voice input">
+              <button class="tool-btn" id="btn-voice-input" title="สั่งงานด้วยเสียง">
                 <span>🎙️</span>
               </button>
-              <button class="tool-btn" id="btn-surprise-me" title="Get a random story prompt">
+              <button class="tool-btn" id="btn-surprise-me" title="สุ่มไอเดียพล็อตนิยาย">
                 <span>🔀</span>
-                <span>Surprise me</span>
+                <span>สุ่มไอเดียพล็อต</span>
               </button>
             </div>
 
             <button class="btn-generate-submit" id="btn-write-story">
               <span>✨</span>
-              <span>Write my story</span>
+              <span>แต่งนิยายของฉัน</span>
               <span>💎 6</span>
             </button>
           </div>
         </div>
 
         <div class="features-badges">
-          <span>Uncensored</span>
+          <span>ไร้การปิดกั้น</span>
           <span style="color: var(--primary)">♥</span>
-          <span>Private</span>
+          <span>ความเป็นส่วนตัว</span>
           <span style="color: var(--primary)">♥</span>
-          <span>In your language</span>
+          <span>ภาษาไทยสมบูรณ์แบบ</span>
         </div>
 
         <div class="social-proof">
@@ -217,7 +217,7 @@ export class StoryCreator {
             <div class="avatar-stack-item" style="background:#0284c7; color:#fff">H</div>
             <div class="avatar-stack-item" style="background:#059669; color:#fff">U</div>
           </div>
-          <span>Join <strong>53,800+</strong> writers • ⭐⭐⭐⭐⭐ <strong>4.8/5</strong></span>
+          <span>ร่วมแต่งกับนักเขียนกว่า <strong>53,800+</strong> คน • ⭐⭐⭐⭐⭐ <strong>4.8/5</strong></span>
         </div>
 
         <div class="section-divider"></div>
@@ -227,7 +227,7 @@ export class StoryCreator {
           <div class="generating-header">
             <div class="generating-badge">
               <span class="pulse-dot"></span>
-              <span>Weaving your story with AI...</span>
+              <span>กำลังถักทอเรื่องราวของคุณด้วย AI...</span>
             </div>
             <h4 id="gen-story-title" style="font-family: var(--font-serif); font-size: 1.1rem; color: #fff;"></h4>
           </div>
